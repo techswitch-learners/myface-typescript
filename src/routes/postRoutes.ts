@@ -7,7 +7,7 @@ import {
   likePost,
 } from "../services/postService";
 import { body, validationResult } from "express-validator";
-//import { format } from "date-fns";
+import { format } from "date-fns";
 
 const router = express.Router();
 
@@ -21,6 +21,8 @@ router.get("/", async (request, response) => {
   return response.render("post_list", {
     postList: postList,
     format: format,
+    previous: postList.previous,
+    next: postList.next
   });
 });
 

@@ -3,6 +3,27 @@
 <%- include('_header') -%>
 <body>
 <h1><%= name %></h1>
+<div>
+    Username  <%= username %>
+</div>
+<div>
+    Profile Image  <img src="<%=profileImageUrl%>" alt="user image" width=20 height=20/>
+</div>
+<div>
+    Email  <%= email %>
+</div>
+<div>
+    Posts  
+    <ol>
+        <% posts.forEach(function(post) {%>
+            <li>
+                <img src="<%= post.imageUrl%>" alt="post image" width=20 height=20/>
+                <%= post.message %>
+            </li>
+        <% }); %>
+    </ol>
+</div>
+
 </body>
 <%- include('_footer') -%>
 </html>

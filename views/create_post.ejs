@@ -3,6 +3,26 @@
 <%- include('_header') -%>
 <body>
 <h1>Create Post</h1>
+<form method="post" action="/posts/create">
+    <label>
+        Message:
+        <input type="text" message="message"/>
+    </label>
+    <label>
+        Image:
+        <input type="text" imageUrl="imageUrl"/>
+    </label>
+    <label>
+        Posted by:
+        <input type="text" postedBy = "postedBy.name"/>
+    </label>
+    <button type="submit">Submit</button>
+</form>
+
+
+
+
+
 </body>
 <%- include('_footer') -%>
 </html>

@@ -1,21 +1,33 @@
+
+
 <html lang="en-gb">
 <%- include('_head') -%>
 <%- include('_header') -%>
+
+<head>
+    <style>
+        body {background-color: lightblue;}
+        h1 {color: navy; margin-left: 20px;}
+    </style>
+</head>
+
+
 <body>
 <h1>Users</h1>
 <ol>
     <% results.forEach(function(user) {%>
         <li>
-            <img src= "<%=user.profileImageUrl%>" alt = "user image" width = 20 height = 20/>
+            <img src="<%=user.profileImageUrl%>" alt="user image" width=20 height=20/>
             <%= user.name %>
+            <a href="users/<%=user.id %>" />
         </li>
     <% }); %>
 </ol>
-<%if (previous) { %>
-    <a href="<%= previous %>">Previous</a>
-<% } %>
 <%if (next) { %>
-    <a href="<%= next %>">Next</a>
+    <a href="<%= next %>"> Next </a>
+<% } %>
+<%if (previous) { %>
+    <a href="<%= previous %>"> Previous </a>
 <% } %>
 </body>
 <%- include('_footer') -%>

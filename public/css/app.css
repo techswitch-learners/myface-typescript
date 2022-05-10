@@ -1,1 +1,13 @@
-/* Add your styles here. */
+#image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px ridge blue;
+    padding: 50px;
+    
+
+    text-align: center;
+}
+
+
+
