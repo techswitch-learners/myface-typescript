@@ -9,10 +9,15 @@
     "outDir": "dist",
     "strict": true,
     "resolveJsonModule": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
   },
-  "include": ["src/**/*.ts", "tests/**/*.ts"],
-  "exclude": ["node_modules", ".vscode", ".idea", "typings/browser.d.ts",
-    "typings/browser"]
+  "include": [
+    "src/**/*.ts",
+    "tests/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    ".vscode",
+    ".idea"
+  ]
 }
-
