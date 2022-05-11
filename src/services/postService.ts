@@ -5,7 +5,6 @@ import {getByPostInteraction, getUser} from "../repos/userRepo";
 import {Post} from "../models/database/post";
 import {CreatePostRequest} from "../models/api/createPostRequest";
 import {createInteraction} from "../repos/interactionRepo";
-import { parse } from "date-fns";
 
 export async function getPageOfPosts(page: number, pageSize: number): Promise<Page<PostModel>> {
     const posts = await postRepo.getPosts(page, pageSize);
@@ -44,7 +43,7 @@ async function toPostModel(post: Post): Promise<PostModel> {
         id: post.id,
         message: post.message,
         imageUrl: post.imageUrl,
-        createdAt: parse(post.createdAt, "yyyy-MM-dd HH:mm:ss", new Date()),
+        createdAt: post.createdAt,
         postedBy: await getUser(post.userId),
         likedBy: await getByPostInteraction(post.id, 'LIKE', 1, 10),
         dislikedBy: await getByPostInteraction(post.id, 'DISLIKE', 1, 10),

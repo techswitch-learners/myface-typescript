@@ -3,6 +3,7 @@ import {Post} from "../models/database/post";
 import {PostModel} from "../models/api/postModel";
 import {InteractionType} from "../models/database/interaction";
 import {CreatePostRequest} from "../models/api/createPostRequest";
+import moment from "moment";
 import knex from "knex";
 
 interface PostsFilter {
