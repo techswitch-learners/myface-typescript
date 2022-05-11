@@ -7,7 +7,6 @@ import {
   likePost,
 } from "../services/postService";
 import { body, validationResult } from "express-validator";
-import { format } from "date-fns";
 
 const router = express.Router();
 
@@ -18,12 +17,7 @@ router.get("/", async (request, response) => {
     : 10;
 
   const postList = await getPageOfPosts(page, pageSize);
-  return response.render("post_list", {
-    postList: postList,
-    format: format,
-    previous: postList.previous,
-    next: postList.next
-  });
+  return response.render("post_list", postList);
 });
 
 router.get("/create/", async (request, response) => {
