@@ -6,10 +6,20 @@
 <ol>
     <% postList.results.forEach(function(post) {%>
         <li>
-            <%= post.message %> - <%= format(post.createdAt, "yyyy-MM-dd HH:mm:ss") %>
+            <%= post.message %> - Posted At : <%= format(post.createdAt, "yyyy-MM-dd HH:mm:ss") %> - Posted By : <%= post.postedBy.name %>
+            <img src= <%= post.imageUrl %>  width="200" height="300"> 
+            
+            
         </li>
+        
     <% }); %>
 </ol>
+<%if (postList.next) { %>
+    <a href="<%= postList.next %>">Next</a>
+<% } %>
+<%if (postList.previous) { %>
+    <a href="<%= postList.previous %>">Previous</a>
+<% } %>
 </body>
 <%- include('_footer') -%>
 </html>
