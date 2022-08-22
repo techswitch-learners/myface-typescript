@@ -7,9 +7,25 @@
 <ol>
     <% postList.results.forEach(function(post) {%>
         <li>
-            <%= post.message %> - Posted At : <%= format(post.createdAt, "yyyy-MM-dd HH:mm:ss") %> 
-            - Posted By : <%= post.postedBy.name %>
-            <img src= <%= post.imageUrl %>  width="200" height="300"> 
+            <%= post.message %> <br>
+            <img src= <%= post.imageUrl %>  width="600" height="600"> <br>
+            Posted by : <%= post.postedBy.name %> <br>
+            Posted at : <%= format(post.createdAt, "yyyy-MM-dd HH:mm:ss") %> <br>
+<!-- Adds in a like button which works but only likes the post specified in action. 
+    Don't know how to make that the postId of whatever post it's on -->
+            <form method="post" action="/posts/1002/like">
+                <button type="submit">Like</button>
+            </form> 
+            Liked by : <%for (let i = 0; i < post.likedBy.length; i++) { %>
+                <%= JSON.stringify(post.likedBy[i].name) %> 
+            <% } %>
+<!-- Dislike button not working at all right now and I don't know why -->
+            <form method="post" action="/posts/1000/dislike">
+                <button type="submit">Dislike</button>
+            </form> 
+            Disliked by : <%for (let i = 0; i < post.dislikedBy.length; i++) { %>
+                <%= JSON.stringify(post.dislikedBy[i].name) %> 
+            <% } %>
         </li>
         
     <% }); %>
