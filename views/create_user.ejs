@@ -3,6 +3,7 @@
 <%- include('_header') -%>
 <body>
 <h1>Create User</h1>
+<h2>All fields marked with * are required</h2>
 <form method="post" action="/users/create">
     <label>
         Name:
@@ -13,7 +14,7 @@
         <input type="text" name="username"/>
     </label>
     <label>
-        Email(Required):
+        Email*:
         <input type="email" name="email" required="required"/>
     </label>
     <label>
