@@ -10,6 +10,9 @@
             <%= post.message %> - Posted At : <%= format(post.createdAt, "yyyy-MM-dd HH:mm:ss") %> 
             - Posted By : <%= post.postedBy.name %>
             <img src= <%= post.imageUrl %>  width="200" height="300"> 
+            <form method="LIKE" action="/posts/post.postId/">
+                <button type="LIKE">Like</button>
+            </form>
         </li>
         
     <% }); %>
