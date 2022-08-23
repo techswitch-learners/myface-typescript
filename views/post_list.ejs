@@ -4,32 +4,33 @@
 <body>
 <h1>Posts</h1>
 
-<ol>
+<ul>
     <% postList.results.forEach(function(post) {%>
         <li>
-            <%= post.message %> <br>
-            <img src= <%= post.imageUrl %>  width="600" height="600"> <br>
-            Posted by : <%= post.postedBy.name %> <br>
-            Posted at : <%= format(post.createdAt, "yyyy-MM-dd HH:mm:ss") %> <br>
-<!-- Adds in a like button which works but only likes the post specified in action. 
-    Don't know how to make that the postId of whatever post it's on -->
-            <form method="post" action="/posts/1002/like">
+            <h3>
+                <%= post.message %> 
+            </h3>
+            <p><b>Posted At :</b> <%= format(post.createdAt, "yyyy-MM-dd HH:mm:ss") %> 
+            <b>Posted By :</b> <%= post.postedBy.name %> - <%= post.postedBy.username%> -
+            <b>Liked By:</b> <%=post.likedBy.length%> - <b>Disliked By:</b> <%=post.dislikedBy.length%></p>
+
+            <img src= <%= post.imageUrl %> width="200" height="300"> 
+            <form method="post" action="/posts/<%=post.id %>/like">
                 <button type="submit">Like</button>
             </form> 
             Liked by : <%for (let i = 0; i < post.likedBy.length; i++) { %>
-                <%= JSON.stringify(post.likedBy[i].name) %> 
+                <%= post.likedBy[i].name %> 
             <% } %>
-<!-- Dislike button not working at all right now and I don't know why -->
-            <form method="post" action="/posts/1000/dislike">
+            <form method="post" action="/posts/<%=post.id %>/dislike">
                 <button type="submit">Dislike</button>
             </form> 
             Disliked by : <%for (let i = 0; i < post.dislikedBy.length; i++) { %>
-                <%= JSON.stringify(post.dislikedBy[i].name) %> 
+                <%= post.dislikedBy[i].name %> 
             <% } %>
         </li>
         
     <% }); %>
-</ol>
+</ul>
 <%if (postList.next) { %>
     <a href=<%= postList.next %>>Next</a>
 <% } %>
